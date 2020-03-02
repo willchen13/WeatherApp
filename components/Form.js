@@ -16,18 +16,13 @@ const Form = ({getWeather}) => {
   const changeStateX = textValue => setStateX(textValue);
   const changeCountry = textValue => setCountry(textValue);
 
-  const onPress = e => {
-    e.preventDefault();
-    console.log('pressed it');
-  };
-
   return (
     <View style={styles.header}>
       <TextInput
         placeholder="Add City"
         onChangeText={changeCity}
         style={styles.input}
-        value={city} />
+        value={city}/>
       <TextInput
         placeholder="Add State"
         onChangeText={changeStateX}
@@ -40,8 +35,8 @@ const Form = ({getWeather}) => {
         value={country}/>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          onPress();
+        onPress={e => {
+          getWeather(e, city, stateX, country);
         }}>
         <Text> Submit </Text>
       </TouchableOpacity>
