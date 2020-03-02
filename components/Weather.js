@@ -1,19 +1,30 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Weather = ({title}) => {
+const Weather = ({
+  temperature,
+  city,
+  country,
+  humidity,
+  description,
+  error,
+}) => {
+//   console.log('what is props', temperature, city, country, humidity, description, error);
   return (
     <View style={styles.header}>
-      <Text style={styles.text}> {title}</Text>
+      {city && country && <Text style={styles.text}> {`Location: ${city},${country}`}</Text>} 
+      {temperature && <Text style={styles.text}> {`Temperature: ${temperature}`}</Text>}
+      {humidity && <Text style={styles.text}> {`Humidity: ${humidity}`}</Text>}
+      {description && <Text style={styles.text}> {`Description: ${description}`}</Text>}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   header: {
-    height: 60,
+    height: 200,
     padding: 15,
-    backgroundColor: 'darkslateblue',
+    backgroundColor: 'lightblue',
   },
   text: {
     color: '#fff',

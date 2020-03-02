@@ -16,27 +16,39 @@ const Form = ({getWeather}) => {
   const changeStateX = textValue => setStateX(textValue);
   const changeCountry = textValue => setCountry(textValue);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    getWeather(city, stateX, country);
+    //resets form
+    changeCity('');
+    changeStateX('');
+    changeCountry('');
+  };
+
   return (
     <View style={styles.header}>
       <TextInput
         placeholder="Add City"
         onChangeText={changeCity}
         style={styles.input}
-        value={city}/>
+        value={city}
+      />
       <TextInput
         placeholder="Add State"
         onChangeText={changeStateX}
         style={styles.input}
-        value={stateX}/>
+        value={stateX}
+      />
       <TextInput
         placeholder="Add Country"
         onChangeText={changeCountry}
         style={styles.input}
-        value={country}/>
+        value={country}
+      />
       <TouchableOpacity
         style={styles.button}
         onPress={e => {
-          getWeather(e, city, stateX, country);
+          handleSubmit(e);
         }}>
         <Text> Submit </Text>
       </TouchableOpacity>
