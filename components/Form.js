@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  Alert,
 } from 'react-native';
 
 const Form = ({getWeather}) => {
@@ -18,11 +19,19 @@ const Form = ({getWeather}) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    getWeather(city, stateX, country);
-    //resets form
-    changeCity('');
-    changeStateX('');
-    changeCountry('');
+    if (city === '') {
+      Alert.alert('Error', 'Please type in a city', {text: 'Ok'});
+    } else if (stateX === '') {
+      Alert.alert('Error', 'Please type in a state', {text: 'Ok'});
+    } else if (country === '') {
+      Alert.alert('Error', 'Please type in a country', {text: 'Ok'});
+    } else {
+      getWeather(city, stateX, country);
+      //resets form
+      changeCity('');
+      changeStateX('');
+      changeCountry('');
+    }
   };
 
   return (

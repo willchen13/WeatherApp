@@ -22,7 +22,7 @@ const Weather = ({
 
 const styles = StyleSheet.create({
   header: {
-    height: 200,
+    height: 150,
     padding: 15,
     backgroundColor: 'lightblue',
   },
