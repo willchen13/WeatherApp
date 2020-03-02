@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Header from './components/Header';
-// import Form from './components/Form';
+import Form from './components/Form';
 import {View, StyleSheet} from 'react-native';
 import configs from './configurations/configs';
 
@@ -34,6 +34,7 @@ class App extends Component {
     return (
       <View style={styles.header}>
         <Header title="Weather Tracker" />
+        <Form/>
       </View>
     );
   }

@@ -18,6 +18,7 @@ const Form = ({getWeather}) => {
 
   const onPress = e => {
     e.preventDefault();
+    console.log('pressed it');
   };
 
   return (
@@ -25,21 +26,18 @@ const Form = ({getWeather}) => {
       <TextInput
         placeholder="Add City"
         onChangeText={changeCity}
-        style={styles.input}>
-        {' '}
-      </TextInput>
+        style={styles.input}
+        value={city} />
       <TextInput
         placeholder="Add State"
         onChangeText={changeStateX}
-        style={styles.input}>
-        {' '}
-      </TextInput>
+        style={styles.input}
+        value={stateX}/>
       <TextInput
         placeholder="Add Country"
         onChangeText={changeCountry}
-        style={styles.input}>
-        {' '}
-      </TextInput>
+        style={styles.input}
+        value={country}/>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
@@ -53,13 +51,19 @@ const Form = ({getWeather}) => {
 
 const styles = StyleSheet.create({
   header: {
-    flex: 1,
-    paddingTop: 60,
+    // flex: 1,
+    // paddingTop: 60,
+    // borderBottomWidth: 1,
+    padding: 10,
   },
   input: {
     height: 60,
-    padding: 8,
     fontSize: 16,
+    padding: 15,
+    backgroundColor: '#f8f8f8',
+    // borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: 'black',
   },
   button: {
     alignItems: 'center',
