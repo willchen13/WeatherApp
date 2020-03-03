@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 const Weather = ({
   temperature,
@@ -8,16 +8,12 @@ const Weather = ({
   humidity,
   description,
   loading,
-  imageLink,
 }) => {
   if (loading) {
     return <Text> {'Loading Data...'} </Text>;
   }
   return (
     <View style={styles.header}>
-      {description !== undefined && (
-        <Image style={styles.image} source={require('../weatherIcons/5.png')} />
-      )}
       {city && country && (
         <Text style={styles.text}> {`Location: ${city},${country}`}</Text>
       )}
@@ -43,10 +39,6 @@ const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontSize: 23,
-  },
-  image: {
-    width: 100,
-    height: 100,
   },
 });
 

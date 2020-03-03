@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import Weather from './components/Weather';
+import WeatherIcon from './components/WeatherIcon';
 import {View, StyleSheet, Text} from 'react-native';
 import configs from './configurations/configs';
 import axios from 'axios';
@@ -74,6 +75,7 @@ class App extends Component {
         <Header title="Weather Tracker" />
         <Text> Check the weather conditions of a specific location.</Text>
         <Form getWeather={this.getWeather} />
+        <WeatherIcon description={this.state.description}/>
         <Weather
           temperature={this.state.temperature}
           city={this.state.city}
@@ -81,7 +83,6 @@ class App extends Component {
           humidity={this.state.humidity}
           description={this.state.description}
           error={this.state.error}
-          imageLink={this.state.imageLink}
         />
       </View>
     );
