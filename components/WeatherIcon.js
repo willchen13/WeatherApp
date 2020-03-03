@@ -5,19 +5,21 @@ import {View, StyleSheet, Image} from 'react-native';
 const WeatherIcon = ({description}) => {
   const [icon, setIcon] = useState('');
   useEffect(() => {
-    setIcon(
-      description.includes('rain')
-        ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/2.png'
-        : description.includes('clouds')
-        ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/5.png'
-        : description.includes('clear') || description.includes('sky')
-        ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/1.png'
-        : description.includes('snow')
-        ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/7.png'
-        : description.includes('haze')
-        ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/4.png'
-        : '',
-    );
+    if (description) {
+      setIcon(
+        description.includes('rain')
+          ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/2.png'
+          : description.includes('clouds')
+          ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/5.png'
+          : description.includes('clear') || description.includes('sky')
+          ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/1.png'
+          : description.includes('snow')
+          ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/7.png'
+          : description.includes('haze')
+          ? 'https://weathericonsmvp.s3-us-west-1.amazonaws.com/4.png'
+          : '',
+      );
+    }
   }, [description]);
 
   return (

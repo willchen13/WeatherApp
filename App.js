@@ -70,14 +70,21 @@ class App extends Component {
   }
 
   render() {
+    const convertKelvinToCelsius = kelvin => {
+      if (kelvin < 0) {
+        return 'below absolute zero';
+      } else {
+        return JSON.stringify(kelvin - 273.15);
+      };
+    };
     return (
       <View style={styles.header}>
         <Header title="Weather Tracker" />
         <Text> Check the weather conditions of a specific location.</Text>
         <Form getWeather={this.getWeather} />
-        <WeatherIcon description={this.state.description}/>
+        <WeatherIcon description={this.state.description} />
         <Weather
-          temperature={this.state.temperature}
+          temperature={this.state.temperature && convertKelvinToCelsius(Number(this.state.temperature))}
           city={this.state.city}
           country={this.state.country}
           humidity={this.state.humidity}

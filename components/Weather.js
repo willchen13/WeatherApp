@@ -18,9 +18,11 @@ const Weather = ({
         <Text style={styles.text}> {`Location: ${city},${country}`}</Text>
       )}
       {temperature && (
-        <Text style={styles.text}> {`Temperature: ${temperature}`}</Text>
+        <Text style={styles.text}> {`Temperature: ${temperature} °F`}</Text>
       )}
-      {humidity && <Text style={styles.text}> {`Humidity: ${humidity}`}</Text>}
+      {humidity && (
+        <Text style={styles.text}> {`Humidity: ${humidity} %`}</Text>
+      )}
       {description && (
         <Text style={styles.text}> {`Description: ${description}`}</Text>
       )}
