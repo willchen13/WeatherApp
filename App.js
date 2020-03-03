@@ -15,8 +15,7 @@ class App extends Component {
       country: undefined,
       humidity: undefined,
       description: undefined,
-      error: undefined,
-      // loading: false,
+      loading: false,
     };
     this.getWeather = this.getWeather.bind(this);
   }
@@ -46,6 +45,7 @@ class App extends Component {
   getWeather(city, stateX, country) {
     // console.log('data', city, stateX, country);
     // console.log('token is', configs.WEATHER_APP_TOKEN);
+    this.setState({loading: true});
     axios
       .get(
         `http://api.openweathermap.org/data/2.5/weather?q=${city},${stateX},${country}&appid=${
@@ -60,7 +60,7 @@ class App extends Component {
           country: data.sys.country,
           humidity: data.main.humidity,
           description: data.weather[0].description,
-          error: '',
+          loading: false,
         });
       })
       .catch(err => {
@@ -81,6 +81,7 @@ class App extends Component {
           humidity={this.state.humidity}
           description={this.state.description}
           error={this.state.error}
+          imageLink={this.state.imageLink}
         />
       </View>
     );

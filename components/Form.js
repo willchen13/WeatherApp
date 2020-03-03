@@ -21,10 +21,13 @@ const Form = ({getWeather}) => {
     e.preventDefault();
     if (city === '') {
       Alert.alert('Error', 'Please type in a city', {text: 'Ok'});
-    } else if (stateX === '') {
-      Alert.alert('Error', 'Please type in a state', {text: 'Ok'});
     } else if (country === '') {
       Alert.alert('Error', 'Please type in a country', {text: 'Ok'});
+    } else if (
+      (country === 'US' || country === 'United States') &&
+      stateX === ''
+    ) {
+      Alert.alert('Error', 'Please type in a state', {text: 'Ok'});
     } else {
       getWeather(city, stateX, country);
       //resets form
