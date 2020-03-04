@@ -36,7 +36,7 @@ class App extends Component {
   //       country: data.sys.country,
   //       humidity: data.main.humidity,
   //       description: data.weather[0].description,
-  //       error: '',
+  //       loading: false,
   //     });
   //   } catch (err) {
   //     console.log(err);
@@ -74,7 +74,7 @@ class App extends Component {
       if (kelvin < 0) {
         return 'below absolute zero';
       } else {
-        return JSON.stringify(kelvin - 273.15);
+        return JSON.stringify(Math.floor(kelvin - 273.15));
       };
     };
     return (
